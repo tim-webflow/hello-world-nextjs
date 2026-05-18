@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
-const basePath = process.env.BASE_URL || "";
+const basePath = "/new-branch";
 const nextConfig: NextConfig = {
   ...(basePath && {
     basePath,
-    assetPrefix: process.env.ASSETS_PREFIX || basePath,
+    assetPrefix: basePath,
   }),
 };
 
