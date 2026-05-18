@@ -1,17 +1,9 @@
-"use client";
-
-import { useState } from "react";
-
-function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <button type="button" onClick={() => setCount((c) => c + 1)}>
-      count is {count}
-    </button>
-  );
-}
+import { Counter } from "./Counter";
 
 export default function Home() {
+  const baseUrl = process.env.BASE_URL ?? "";
+  const assetsPrefix = process.env.ASSETS_PREFIX ?? "";
+
   return (
     <div id="app">
       <div>
@@ -29,6 +21,16 @@ export default function Home() {
         <div className="card">
           <Counter />
         </div>
+        <dl className="env-vars">
+          <dt>BASE_URL</dt>
+          <dd>
+            <code>{baseUrl || "(unset)"}</code>
+          </dd>
+          <dt>ASSETS_PREFIX</dt>
+          <dd>
+            <code>{assetsPrefix || "(unset)"}</code>
+          </dd>
+        </dl>
         <p className="read-the-docs">
           Click on the Next.js and Webflow logos to learn more
         </p>
